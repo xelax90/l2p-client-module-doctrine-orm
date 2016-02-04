@@ -12,10 +12,10 @@
         <field name="deviceCode" type="string" unique="true" length="255" column="device_code" />
 		<field name="issueTime" type="datetime" />
 		<field name="expiryTime" type="string" />
-		<field name="interval" type="string" />
+		<field name="interval" type="string" column="poll_interval" />
 		<field name="userCode" type="string" />
 		<field name="verificationUrl" type="string" />
-		<field name="lastPoll" type="string" nullable="true" />
+		<field name="lastPoll" type="datetime" nullable="true" />
     </entity>
 
 </doctrine-mapping>

@@ -22,7 +22,7 @@ namespace L2PClientModuleDoctrineORM\Service;
 
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use L2PClientModule\Storage\DoctrineStorage as Storage;
+use L2PClientModuleDoctrineORM\Storage\DoctrineStorage as Storage;
 use L2PClient\Storage\ZendSessionStorage;
 use Doctrine\ORM\EntityManager;
 use L2PClient\Token\Token;
@@ -59,7 +59,7 @@ class DoctrineStorage implements FactoryInterface{
 		return $storage;
 	}
 	
-	protected function compareTokens(Token $token1, Token $token2){
+	protected function compareTokens(Token $token1 = null, Token $token2 = null){
 		if(!$token1 && !$token2){
 			return 0;
 		}

@@ -52,18 +52,27 @@ class DoctrineStorage implements StorageInterface, ObjectManagerAwareInterface{
 	}
 
 	public function deleteAccessToken() {
-		$this->getObjectManager()->remove($this->getAccessToken());
-		$this->getObjectManager()->flush();
+		$token = $this->getAccessToken();
+		if($token){
+			$this->getObjectManager()->remove($token);
+			$this->getObjectManager()->flush();
+		}
 	}
 
 	public function deleteDeviceToken() {
-		$this->getObjectManager()->remove($this->getDeviceToken());
-		$this->getObjectManager()->flush();
+		$token = $this->getDeviceToken();
+		if($token){
+			$this->getObjectManager()->remove($token);
+			$this->getObjectManager()->flush();
+		}
 	}
 
 	public function deleteRefreshToken() {
-		$this->getObjectManager()->remove($this->getRefreshToken());
-		$this->getObjectManager()->flush();
+		$token = $this->getRefreshToken();
+		if($token){
+			$this->getObjectManager()->remove($token);
+			$this->getObjectManager()->flush();
+		}
 	}
 
 	public function getAccessToken() {
