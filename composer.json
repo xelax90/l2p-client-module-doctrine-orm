@@ -1,0 +1,20 @@
+{
+    "name": "xelax90/l2p-client-module-doctrine-orm",
+    "description": "Doctrine ORM storage for xelax90/l2p-client-module",
+    "license": "BSD-2-Clause",
+    "authors": [
+        {
+            "name": "Aleksandr",
+            "email": "schurix@gmx.de"
+        }
+    ],
+    "require": {
+        "xelax90/l2p-client-module" : "*",
+        "doctrine/doctrine-orm-module": "0.*"
+    },
+    "autoload" : {
+        "psr-0": {
+            "L2PClientModuleDoctrineORM\\" : "src/"
+        }
+    }
+}
