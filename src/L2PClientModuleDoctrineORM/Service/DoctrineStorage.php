@@ -52,12 +52,12 @@ class DoctrineStorage implements FactoryInterface{
 				}
 			}
 			if($this->compareTokens($sessionStorage->getDeviceToken(), $storage->getDeviceToken()) < 0){
-				if($sessionStorage->getAccessToken()->getDeviceToken()){
+				if($sessionStorage->getDeviceToken()->getDeviceCode()){
 					$storage->saveDeviceToken($sessionStorage->getDeviceToken());
 				}
 			}
 			if($this->compareTokens($sessionStorage->getRefreshToken(), $storage->getRefreshToken()) < 0){
-				if($sessionStorage->getAccessToken()->getRefreshToken()){
+				if($sessionStorage->getRefreshToken()->getRefreshToken()){
 					$storage->saveRefreshToken($sessionStorage->getRefreshToken());
 				}
 			}
