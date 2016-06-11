@@ -45,6 +45,7 @@ class DoctrineStorage implements FactoryInterface{
 			$storage = new Storage($em, $auth->getIdentity()->getId());
 			
 			// check if the session data is newer than the doctrine data
+			/* @var $sessionStorage ZendSessionStorage */
 			$sessionStorage = $serviceLocator->get(ZendSessionStorage::class);
 			if($this->compareTokens($sessionStorage->getAccessToken(), $storage->getAccessToken()) < 0){
 				if($sessionStorage->getAccessToken()->getAccessToken()){
@@ -61,6 +62,9 @@ class DoctrineStorage implements FactoryInterface{
 					$storage->saveRefreshToken($sessionStorage->getRefreshToken());
 				}
 			}
+			$sessionStorage->deleteAccessToken();
+			$sessionStorage->deleteDeviceToken();
+			$sessionStorage->deleteRefreshToken();
 		}
 		return $storage;
 	}
